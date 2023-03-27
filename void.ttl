@@ -23,7 +23,7 @@ lodbo:
     foaf:homepage <https://github.com/berlinonline/lod-berlin-bo> ;
     void:dataDump <https://raw.githubusercontent.com/berlinonline/lod-berlin-bo/main/data/static/berlinonline.ttl> ;
     void:feature <http://www.w3.org/ns/formats/Turtle> ;
-    # void:rootResource <...> ;
+    void:rootResource lodbo:berlinonline ;
     # void:exampleResource <...> ;
 .
 

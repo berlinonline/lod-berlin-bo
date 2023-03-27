@@ -76,6 +76,15 @@ rdf_prefix_path: "conf/prefixes.sparql"
                   </td>
                 </tr>
               {% endfor %}
+              {% assign root_resources = page.rdf | rdf_property: "void:rootResource", nil, true %}
+              {% for resource in root_resources %}
+                <tr>
+                  <td>Einstiegsressource:</td>
+                  <td>
+                    {% include prefix_url.html iri=resource.iri %}
+                  </td>
+                </tr>
+              {% endfor %}
               {% assign licenses = page.rdf | rdf_property: "dct:license", nil, true %}
               {% for license in licenses %}
                 <tr>
