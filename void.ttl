@@ -19,7 +19,7 @@ lodbo:
     dct:created "2023-03-27"^^xsd:date ;
     dct:modified "2023-03-27"^^xsd:date ;
     dct:publisher lodbo:berlinonline ;
-    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     foaf:homepage <https://github.com/berlinonline/lod-berlin-bo> ;
     void:dataDump <https://raw.githubusercontent.com/berlinonline/lod-berlin-bo/main/data/static/berlinonline.ttl> ;
     void:feature <http://www.w3.org/ns/formats/Turtle> ;
