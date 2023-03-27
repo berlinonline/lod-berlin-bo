@@ -1,8 +1,8 @@
-baseurl: "/lod-sg" # the subpath of your site, e.g. /blog
+baseurl: "/lod-berlin-bo" # the subpath of your site, e.g. /blog
 url: "https://berlinonline.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 true_url: "https://berlinonline.github.io"
 
-dataset_url: "/lod-sg/"
+dataset_url: "/lod-berlin-bo/"
 dataset_breadcrumb: "Datensatz"
 cbd_folder: "cbds/"
 
@@ -18,7 +18,7 @@ plugins:
 # Jekyll RDF settings
 jekyll_rdf:
     path: "data/temp/all.nt"
-    restriction: "SELECT ?resourceUri WHERE { ?resourceUri ?predicate ?object FILTER(STRSTARTS(STR(?resourceUri), 'https://berlinonline.github.io/lod-sg')) }"
+    restriction: "SELECT ?resourceUri WHERE { ?resourceUri ?predicate ?object FILTER(STRSTARTS(STR(?resourceUri), 'https://berlinonline.github.io/lod-berlin-bo')) }"
     default_template: "default"
     class_template_mappings:
         "http://rdfs.org/ns/void#Dataset": "dataset"

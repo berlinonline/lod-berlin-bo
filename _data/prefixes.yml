@@ -13,6 +13,9 @@
 - prefix: lodsg
   url: https://berlinonline.github.io/lod-sg/
 
+- prefix: lodbo
+  url: https://berlinonline.github.io/lod-berlin-bo/
+  
 - prefix: schema
   url: https://schema.org/
 
