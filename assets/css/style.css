@@ -42,6 +42,10 @@ body .container {
     border-bottom: solid 2px #a9a9a9;
 }
 
+.local-graph {
+    padding-top: 15px;
+}
+
 /* #local_graph_content .tab-pane {
     margin-top: 15px;
 }
