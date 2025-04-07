@@ -1,6 +1,6 @@
 # BerlinOnline as Linked Open Data
 
-This repository holds some minimal RDF data describing the company [BerlinOnline Stadtportal GmbH & Co. KG](https://berlinonline.de).
+This repository holds some minimal RDF data describing the company [BerlinOnline GmbH](https://berlinonline.de).
 
 The data was created and is maintained by hand and was published as Linked Open Data using the [LOD Site Generator](https://github.com/berlinonline/lod-sg) repository as a template.
 

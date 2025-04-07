@@ -12,7 +12,7 @@
 
 lodbo:berlinonline
     a schema:Organization ;
-    schema:name "BerlinOnline Stadtportal GmbH & Co. KG"@de ;
+    schema:name "BerlinOnline GmbH"@de ;
     schema:address [
         a schema:PostalAddress ;
         schema:streetAddress "Stefan-Heym-Platz 1" ;

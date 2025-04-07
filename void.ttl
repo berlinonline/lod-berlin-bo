@@ -14,10 +14,10 @@ lodbo:
     a void:Dataset ;
     dct:title "BerlinOnline als Linked Open Data"@de ;
     dct:title "BerlinOnline as linked open data"@en ;
-    dct:description """Dieser Datensatz beschreibt die Firma BerlinOnline Stadtportal GmbH & Co. KG als Linked Open Data."""@de ;
-    dct:description """This dataset describes the company BerlinOnline Stadtportal GmbH & Co. KG asl linked open data."""@en ;
+    dct:description """Dieser Datensatz beschreibt die Firma BerlinOnline GmbH als Linked Open Data."""@de ;
+    dct:description """This dataset describes the company BerlinOnline GmbH asl linked open data."""@en ;
     dct:created "2023-03-27"^^xsd:date ;
-    dct:modified "2023-03-27"^^xsd:date ;
+    dct:modified "2025-04-07"^^xsd:date ;
     dct:publisher lodbo:berlinonline ;
     dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
     foaf:homepage <https://github.com/berlinonline/lod-berlin-bo> ;
