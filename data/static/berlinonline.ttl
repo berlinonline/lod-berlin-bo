@@ -22,48 +22,29 @@ lodbo:berlinonline
     ] ;
     schema:url <https://berlinonline.net> ;
     schema:faxNumber "+49 30 5771180 95" ;
-    schema:telephone "+49 30 2327 5530" ;
+    schema:telephone "+49 30 5771180 90" ;
     schema:taxID "DE219483549" ;
     schema:email <mailto:info@berlinonline.de> ;
     schema:identifier [
         a schema:PropertyValue ;
         schema:propertyID "Handelsregisternummer"@de ;
-        schema:value "HRA 31951" ;
+        schema:value "HRB 266384" ;
         lodsg:registerGericht lodbo:amtsgerichtCharlottenburg ;
     ] ;
-    lodsg:komplementaer lodbo:berlinonlineBeteiligung ;
+    lodsg:managingDirector lodbo:katrinDorgeist, lodbo:andreasMaengel ;
 .
 
-lodbo:berlinonlineBeteiligung
-    a schema:Organization ;
-    schema:name "BerlinOnline Stadtportalbeteiligungsges. mbH" ;
-    schema:identifier [
-        a schema:PropertyValue ;
-        schema:propertyID "Handelsregisternummer"@de ;
-        schema:value "HRB 79077" ;
-        lodsg:registerGericht lodbo:amtsgerichtCharlottenburg ;
-    ] ;
-    schema:address [
-        a schema:PostalAddress ;
-        schema:streetAddress "Stefan-Heym-Platz 1" ;
-        schema:postalCode "10367" ;
-        schema:addressLocality "Berlin" ;
-        schema:addressCountry "DE" ;
-    ] ;
-    lodsg:managingDirector lodbo:olfDziadek, lodbo:andreasMaengel ;
-
-.
-
-lodbo:olfDziadek
-    a schema:Person ;
-    schema:name "Olf Dziadek" ;
-    schema:familyName "Dziadek" ;
-.
 
 lodbo:andreasMaengel
     a schema:Person ;
     schema:name "Andreas Mängel" ;
     schema:familyName "Mängel" ;
+.
+
+lodbo:katrinDorgeist
+    a schema:Person ;
+    schema:name "Katrin Dorgeist" ;
+    schema:familyName "Dorgeist" ;
 .
 
 lodbo:amtsgerichtCharlottenburg

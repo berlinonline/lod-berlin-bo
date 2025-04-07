@@ -28,7 +28,7 @@ rdf_prefix_path: "conf/prefixes.sparql"
         <div class="col-12">
           <div id="imprint_contact" class="imprint-block">
             {%  capture responsible_org_query %}
-              SELECT ?name ?street ?postalCode ?locality ?telephone ?faxNumber ?email
+              SELECT ?name ?street ?postalCode ?locality ?telephone ?faxNumber ?email (GROUP_CONCAT(?director_name; SEPARATOR = ", ") AS ?director_list)
               WHERE {
                 ?resourceUri schema:about/dct:publisher ?org .
                 ?org
@@ -41,24 +41,33 @@ rdf_prefix_path: "conf/prefixes.sparql"
                   schema:telephone ?telephone ;
                   schema:faxNumber ?faxNumber ;
                   schema:email ?email ;
+                  lodsg:managingDirector [
+                    schema:name ?director_name ;
+                    schema:familyName ?director_family_name ;
+                  ] ;
+                .
               }
-              {% endcapture %}
-              {% assign responsible_org = page.rdf | sparql_query: responsible_org_query %}
-              {% if responsible_org.size > 0 %}
-                {% for row in responsible_org %}
-                  {{ row.name }}<br/>
-                  {{ row.street }}<br/>
-                  {{ row.postalCode }} {{ row.locality }}<br/>
-                  <br/>
-                  Tel.: {{ row.telephone }}<br/>
-                  Fax: {{ row.faxNumber }}<br/>
-                  E-Mail: <a href="{{ row.email }}">{{ row.email | remove_first: "mailto:" }}</a>
-                {% endfor %}
-              {% endif %}
+              GROUP BY ?name ?street ?postalCode ?locality ?telephone ?faxNumber ?email
+              ORDER BY ?director_name
+            {% endcapture %}
+            {% assign responsible_org = page.rdf | sparql_query: responsible_org_query %}
+            {% if responsible_org.size > 0 %}
+              {% for row in responsible_org %}
+                {{ row.name }}<br/>
+                {{ row.street }}<br/>
+                {{ row.postalCode }} {{ row.locality }}<br/>
+                <br/>
+                Tel.: {{ row.telephone }}<br/>
+                Fax: {{ row.faxNumber }}<br/>
+                E-Mail: <a href="{{ row.email }}">{{ row.email | remove_first: "mailto:" }}</a><br/>
+                <br/>
+                Geschäftsführung: {{ row.director_list }}
+              {% endfor %}
+            {% endif %}
           </div>
           <div id="imprint_register" class="imprint-block">
             {% capture registry_query_a %}
-              SELECT ?court_name ?register_id ?locality ?country ?tax_id
+              SELECT ?court_name ?register_id ?locality ?country ?tax_id 
               WHERE {
                 ?resourceUri schema:about/dct:publisher ?org .
                 ?org 
@@ -82,43 +91,6 @@ rdf_prefix_path: "conf/prefixes.sparql"
                 {{ row.court_name }}, {{ row.register_id }}<br/>
                 Sitz der Gesellschaft: {{ row.locality }}, {{ row.country }}<br/>
                 USt.-IdNr: {{ row.tax_id }}
-              {% endfor %}
-            {% endif %}
-          </div>
-          <div id="imprint_komplementaer" class="imprint-block">
-            {% capture registry_query_b %}
-              SELECT ?comp_name ?court_name ?register_id ?locality ?country (GROUP_CONCAT(?director_name; SEPARATOR = ", ") AS ?director_list)
-              WHERE {
-                ?resourceUri schema:about/dct:publisher/lodsg:komplementaer ?org .
-                ?org
-                  schema:name ?comp_name ;
-                  schema:identifier ?identifier ;
-                  schema:address [
-                    schema:addressLocality ?locality ;
-                    schema:addressCountry ?country ;
-                  ] ;
-                  lodsg:managingDirector [
-                    schema:name ?director_name ;
-                    schema:familyName ?director_family_name ;
-                  ]
-                .
-                ?identifier
-                  schema:value ?register_id ;
-                  lodsg:registerGericht/schema:name ?court_name ;
-                  schema:propertyID "Handelsregisternummer"@de ;
-                .
-              }
-              GROUP BY ?comp_name ?court_name ?register_id ?locality ?country
-              ORDER BY ?director_family_name
-            {% endcapture %}
-            {% assign registry_b = page.rdf | sparql_query: registry_query_b %}
-            {% if registry_b.size > 0 %}
-              {% for row in registry_b %}
-                Komplementär:<br/>
-                {{ row.comp_name }}<br/>
-                {{ row.court_name }}, {{ row.register_id }}<br/>
-                Sitz der Gesellschaft: {{ row.locality }}, {{ row.country }}<br/>
-                {{ row.director_list }}
               {% endfor %}
             {% endif %}
           </div>

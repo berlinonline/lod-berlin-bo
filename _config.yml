@@ -23,4 +23,5 @@ jekyll_rdf:
     class_template_mappings:
         "http://rdfs.org/ns/void#Dataset": "dataset"
         "https://schema.org/Organization": "organization"
+        "https://schema.org/Person": "person"
         "https://berlinonline.github.io/lod-sg/ImprintPage": "imprint"
